@@ -1,17 +1,9 @@
 class Solution {
     public int maxCoins(int[] piles) {
         int coins=0;
-        LinkedList<Integer> list=new LinkedList<>();
-        for(int i:piles){
-            list.add(i);
-        }
-        Collections.sort(list);
-        while(!list.isEmpty()){
-            list.removeLast();
-            coins+=list.removeLast();
-            list.removeFirst();
-
-        }
+        Arrays.sort(piles);
+        for(int i=piles.length/3;i<piles.length;i+=2)
+            coins+=piles[i];
         return coins;
     }
 }
